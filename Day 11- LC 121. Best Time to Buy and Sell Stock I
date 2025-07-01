@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n=prices.size();
+        int bigg=INT_MIN;
+        int smol=INT_MAX;
+        int time=0;
+
+        for(int i=0;i<n;i++ ){
+            if(prices[i]<smol){
+                smol=prices[i];
+                bigg=0;
+            }
+            else if(prices[i]>bigg){
+                bigg=prices[i];
+            }
+            time= max(bigg-smol,time);
+        }
+        return time;
+    }
+};
